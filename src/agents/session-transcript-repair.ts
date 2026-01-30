@@ -137,9 +137,7 @@ export function repairToolUseResultPairing(messages: AgentMessage[]): ToolUseRep
           const nextRole = (next as { role?: unknown }).role;
           if (nextRole === "assistant") break;
           if (nextRole === "toolResult") {
-            const id = extractToolResultId(
-              next as Extract<AgentMessage, { role: "toolResult" }>,
-            );
+            const id = extractToolResultId(next as Extract<AgentMessage, { role: "toolResult" }>);
             if (id && erroredIds.has(id)) {
               // Drop the orphan tool_result that matched the errored assistant
               changed = true;
