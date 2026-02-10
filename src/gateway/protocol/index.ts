@@ -130,6 +130,13 @@ import {
   NodeDescribeParamsSchema,
   type NodeEventParams,
   NodeEventParamsSchema,
+  type NodeHealthFrame,
+  type NodeHealthGetParams,
+  NodeHealthGetParamsSchema,
+  type NodeHealthNode,
+  type NodeHealthTelemetryEntry,
+  type NodeHealthTelemetryFrame,
+  NodeHealthTelemetryFrameSchema,
   type NodeInvokeParams,
   NodeInvokeParamsSchema,
   type NodeInvokeResultParams,
@@ -271,6 +278,11 @@ export const validateNodeInvokeResultParams = ajv.compile<NodeInvokeResultParams
   NodeInvokeResultParamsSchema,
 );
 export const validateNodeEventParams = ajv.compile<NodeEventParams>(NodeEventParamsSchema);
+export const validateNodeHealthGetParams =
+  ajv.compile<NodeHealthGetParams>(NodeHealthGetParamsSchema);
+export const validateNodeHealthTelemetryFrame = ajv.compile<NodeHealthTelemetryFrame>(
+  NodeHealthTelemetryFrameSchema,
+);
 export const validateSessionsListParams = ajv.compile<SessionsListParams>(SessionsListParamsSchema);
 export const validateSessionsPreviewParams = ajv.compile<SessionsPreviewParams>(
   SessionsPreviewParamsSchema,
@@ -565,6 +577,11 @@ export type {
   NodeInvokeParams,
   NodeInvokeResultParams,
   NodeEventParams,
+  NodeHealthNode,
+  NodeHealthFrame,
+  NodeHealthTelemetryFrame,
+  NodeHealthTelemetryEntry,
+  NodeHealthGetParams,
   SessionsListParams,
   SessionsPreviewParams,
   SessionsResolveParams,
